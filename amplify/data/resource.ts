@@ -24,6 +24,7 @@ const schema = a.schema({
       tax: a.integer(),
       purchase: a.belongsTo("Purchase", "purchaseId"),
     })
+    .authorization((allow) => [allow.publicApiKey()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
