@@ -1,7 +1,12 @@
-import { defineStorage } from '@aws-amplify/backend';
+import { defineFunction, defineStorage } from '@aws-amplify/backend';
 
 export const storage = defineStorage({
   name: 'amplifyTeamDrive',
+  triggers: {
+    onUpload: defineFunction({
+      entry: './on-upload-handler.ts'
+    })
+  },
   access: (allow) => ({
     'profile-pictures/{entity_id}/*': [
       allow.guest.to(['read']),
