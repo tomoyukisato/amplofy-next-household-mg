@@ -1,5 +1,4 @@
 import { defineFunction, defineStorage } from '@aws-amplify/backend';
-import { sayHello } from '../functions/say-hello/resource';
 
 export const storage = defineStorage({
   name: 'amplifyTeamDrive',
@@ -13,10 +12,8 @@ export const storage = defineStorage({
       allow.guest.to(['read']),
       allow.entity('identity').to(['read', 'write', 'delete'])
     ],
-    'picture-submissions/*':
-    [
-      allow.resource(sayHello).to(['read', 'write', 'delete']),
-      allow.authenticated.to(['read','write']),
+    'picture-submissions/*': [
+         allow.authenticated.to(['read','write']),
       allow.guest.to(['read', 'write'])
     ],
   })

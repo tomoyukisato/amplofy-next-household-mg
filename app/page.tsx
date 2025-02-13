@@ -45,6 +45,11 @@ export default function App() {
     listPurcahses();
   }, []);
 
+  const res = client.queries.sayHello({
+    name: "Amplify",
+  });
+  console.log("res");
+  console.log(res);
   // function createPurcahse() {
   //   client.models.Purchase.create({
   //     : window.prompt("Todo content"),
